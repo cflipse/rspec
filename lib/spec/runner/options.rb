@@ -50,6 +50,7 @@ module Spec
         :argv
       )
       attr_reader :colour, :differ_class, :files, :examples, :example_groups
+      attr_writer :drb_port
       
       def initialize(error_stream, output_stream)
         @error_stream = error_stream
@@ -261,6 +262,10 @@ module Spec
       
       def dry_run?
         @dry_run == true
+      end
+
+      def drb_port
+        @drb_port.to_i if @drb_port
       end
       
     protected
